@@ -5,6 +5,9 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
+    <div id="footer">
+      <p>API från https://www.thecocktaildb.com/api.php</p>
+    </div>
   </div>
 </template>
 
