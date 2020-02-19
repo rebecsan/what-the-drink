@@ -20,6 +20,10 @@
   color: #2c3e50;
 }
 
+img {
+  height: 40vh;
+}
+
 #nav {
   padding: 30px;
 }

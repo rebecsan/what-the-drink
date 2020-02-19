@@ -1,7 +1,13 @@
 <template>
   <div>
-    <img v-if="drinks" :src="drinks[0].strDrinkThumb" alt="">
-    <h3 v-if="drinks">{{drinks[0].strDrink}}</h3>
+    <section v-if="drinks">
+      <img :src="drinks[0].strDrinkThumb" alt="">
+      <h3>{{drinks[0].strDrink}}</h3>
+      <ul>
+        <li>{{drinks[0].strIngredient1 + ' ' + drinks[0].strMeasure1}}</li>
+      </ul>
+      <p>{{drinks[0].strInstructions}}</p>
+    </section>
   </div>
 </template>
 
@@ -22,7 +28,6 @@ export default {
         .then(response => response.json())
         .then(result => {
           this.drinks = result.drinks
-          console.log(this.drinks)
         })
     }
   }
@@ -31,5 +36,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  img {
+    height: 40vh;
+  }
 </style>
