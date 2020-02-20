@@ -21,8 +21,8 @@ export default {
   },
   data () {
     return {
-      helpers: new Helpers(),
       drinks: null,
+      helpers: new Helpers(),
       searchString: this.searchString
     }
   },

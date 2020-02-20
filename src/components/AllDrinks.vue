@@ -1,24 +1,20 @@
 <template>
   <div>
     <section v-if="drinks">
-      <div v-for='drink in drinks' :key='drink.name'>
-        <img :src="drink.image" alt="">
-        <h3>{{drink.name}}</h3>
-        <ul>
-          <template v-for="ingredient in drink.ingredients">
-            <li :key="ingredient">{{ingredient}}</li>
-          <template>
-        </ul>
-        <p>{{drink.instructions}}</p>
-      </div>
+        <Drink v-for="drink in drinks" :key="drink.name" v-bind="drink"/>
     </section>
   </div>
 </template>
 
 <script>
+import Drink from "@/components/Drink.vue";
+
 export default {
+  components: {
+    Drink
+  },
   props: {
     drinks: Array
   }
-}
+};
 </script>

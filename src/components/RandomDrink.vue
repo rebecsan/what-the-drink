@@ -1,25 +1,27 @@
 <template>
   <div>
     <section v-if="drinks">
-      <img :src="drinks[0].strDrinkThumb" alt="">
-      <h3>{{drinks[0].strDrink}}</h3>
-      <ul>
-        <li>{{drinks[0].strIngredient1 + ' ' + drinks[0].strMeasure1}}</li>
-      </ul>
-      <p>{{drinks[0].strInstructions}}</p>
+      <Drink v-bind='drinks[0]'/>
     </section>
   </div>
 </template>
 
 <script>
+import Drink from '@/components/Drink.vue'
+import Helpers from '@/Helpers.js'
+
 export default {
+  components: {
+    Drink
+  },
   name: 'randomDrink',
   created () {
     this.fetchRandomDrink()
   },
   data () {
     return {
-      drinks: null
+      drinks: null,
+      helpers: new Helpers()
     }
   },
   methods: {
@@ -27,7 +29,8 @@ export default {
       fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
         .then(response => response.json())
         .then(result => {
-          this.drinks = result.drinks
+          this.drinks = result.drinks.map(this.helpers.structureRecipe)
+          console.log(this.drinks)
         })
     }
   }

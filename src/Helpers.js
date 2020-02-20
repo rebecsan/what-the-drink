@@ -6,7 +6,7 @@ export default class Helpers {
       if (drink["strIngredient" + i] != null) {
         ingredient.name = drink["strIngredient" + i];
       }
-      if (drink["strMeasure" + i] != null) {
+      if ((drink["strMeasure" + i] != null) || (drink["strMeasure" + i] != undefined)) {
         ingredient.amount = drink["strMeasure" + i];
       }
       if (ingredient.name != null) {
