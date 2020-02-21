@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <h1>What the drink</h1>
     <RandomDrink/>
-    <input v-model="searchString" placeholder="Skriv in bokstav">
+    <label for="searchBox">List all drinks by first letter</label>
+    <input v-model="searchString" name="searchBox" placeholder="Enter letter">
     <AllDrinks :drinks="drinks"/>
   </div>
 </template>

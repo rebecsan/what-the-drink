@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section v-if="drinks">
+    <section v-if="drinks" id="randomDrink">
       <Drink v-bind='drinks[0]'/>
     </section>
   </div>

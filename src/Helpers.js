@@ -3,10 +3,10 @@ export default class Helpers {
     let ingredients = [];
     for (let i = 0; i < 15; i++) {
       let ingredient = {}
-      if (drink["strIngredient" + i] != null) {
+      if ((drink["strIngredient" + i] != null) && (drink["strIngredient" + i] != '')) {
         ingredient.name = drink["strIngredient" + i];
       }
-      if (drink["strMeasure" + i] != null) {
+      if ((drink["strMeasure" + i] != null) && (drink["strIngredient" + i] != '')) {
         ingredient.amount = drink["strMeasure" + i];
       }
       if (ingredient.name != null) {

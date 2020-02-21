@@ -1,7 +1,7 @@
 <template>
   <div>
-    <section v-if="drinks">
-        <Drink v-for="drink in drinks" :key="drink.name" v-bind="drink"/>
+    <section v-if="drinks" class="results">
+        <Drink v-for="drink in drinks" :key="drink.name" v-bind="drink"/> <!-- v-bind without ....... -->
     </section>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
     Drink
   },
   props: {
-    drinks: Array
+    drinks: Array // Get all props from Drink.vue
   }
 };
 </script>

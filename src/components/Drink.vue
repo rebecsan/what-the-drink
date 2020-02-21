@@ -1,16 +1,29 @@
 <template>
   <div>
     <img :src="image" alt="">
-    <h3>{{name}}</h3>
-    <ul>
-      <li v-for="ingredient in ingredients" :key="ingredient.name"><span>{{ingredient.name}}</span> <span v-if=ingredient.amount>{{ingredient.amount}}</span></li>
-    </ul>
-    <p>{{instructions}}</p>
+    <section>
+      <h3>{{name}}</h3>
+      <table>
+        <tr v-for="ingredient in ingredients" :key="ingredient.name">
+          <td v-if=ingredient.amount>{{ingredient.amount}}</td>
+          <td v-else></td>
+          <td>{{ingredient.name}}</td>
+        </tr>
+      </table>
+      <p class="instructions">{{instructions}}</p>
+    </section>
   </div>
+  <!-- @click="visible = !visible" -->
+  <!-- @click="expandDrink" -->
 </template>
 
 <script>
 export default {
+  // methods: {
+  //   expandDrink () {
+  //     alert('Det funkar')
+  //   }
+  // },
   props: {
     ingredients: Array,
     image: String,
