@@ -41,6 +41,7 @@ h1 {
 
 img {
   height: 40vh;
+  max-width: 100%;
 }
 
 input {
@@ -75,12 +76,12 @@ li {
 .results {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 5rem;
+  margin: 2rem 10rem 2rem 10rem;
 }
 
 .results img {
   object-fit: cover;
-  width: 25vw;
+  width: 1fr;
   height: auto;
 }
 
