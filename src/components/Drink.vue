@@ -1,8 +1,11 @@
 <template>
   <div>
-    <img :src="image" alt="">
+    <img :src="image">
     <section>
       <h3>{{name}}</h3>
+        <v-btn text icon color="pink">
+          <v-icon>mdi-heart</v-icon>
+        </v-btn>
       <table>
         <tr v-for="ingredient in ingredients" :key="ingredient.name">
           <td v-if=ingredient.amount>{{ingredient.amount}}</td>
@@ -14,13 +17,12 @@
     </section>
   </div>
   <!-- @click="visible = !visible" -->
-  <!-- @click="expandDrink" -->
 </template>
 
 <script>
 export default {
   // methods: {
-  //   expandDrink () {
+  //   likeDrink () {
   //     alert('Det funkar')
   //   }
   // },
