@@ -6,19 +6,22 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     favorites: new Set(),
+    favArr: []
   },
   mutations: {
-    TOGGLE_FAVORITE (state, id) {
-      if (state.favorites.has(id)) {
-        state.favorites.delete(id)
+    TOGGLE_FAVORITE (state, drink) {
+      if (state.favorites.has(drink.id)) {
+        state.favorites.delete(drink.id)
+        state.favArr = state.favArr.filter(d => d.id != drink.id)
       } else {
-        state.favorites.add(id)
+        state.favorites.add(drink.id)
+        state.favArr.push(drink)
       }
     }
   },
   actions: {
-    toggleFavorite (context, id) {
-      context.commit('TOGGLE_FAVORITE',id)
+    toggleFavorite (context, drink) {
+      context.commit('TOGGLE_FAVORITE',drink)
     }
   },
 })

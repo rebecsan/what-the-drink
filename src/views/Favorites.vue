@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     favorites() {
-      return this.$store.state.favorites
+      return this.$store.state.favArr
     }
   }
 }

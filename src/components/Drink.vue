@@ -3,7 +3,7 @@
     <img :src="image">
     <section>
       <h3>{{name}}</h3>
-        <v-btn @click="toggleLike" :class="{testProp: isFavorite}" text icon large>
+        <v-btn @click="toggleLike" :class="{active: isFavorite}" text icon large>
           <v-icon>{{ myIcon.name }}</v-icon>
         </v-btn>
       <table>
@@ -37,7 +37,13 @@ export default {
   },
   methods: {
     toggleLike () {
-      this.$store.dispatch('toggleFavorite', this.id)
+      this.$store.dispatch('toggleFavorite', {
+        id: this.id,
+        image: this.image,
+        ingredients: this.ingredients,
+        instructions: this.instructions,
+        name: this.name,
+      })
       //this.isFavorite = !this.isFavorite
     }
   },
