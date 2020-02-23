@@ -1,17 +1,22 @@
 <template>
   <div class="favorites">
-    <AllDrinks/>
+    <Drink v-for="drink in favorites" :key="drink.name" v-bind="drink"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import AllDrinks from '@/components/AllDrinks.vue'
+import Drink from "@/components/Drink.vue";
 
 export default {
   name: 'Favorites',
   components: {
-    AllDrinks
+    Drink
+  },
+  computed: {
+    favorites() {
+      return this.$store.state.favorites
+    }
   }
 }
 </script>

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <v-app>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/favorites">Favorites</router-link>
@@ -9,6 +10,7 @@
     <div id="footer">
       <p>API från https://www.thecocktaildb.com/api.php</p>
     </div>
+    </v-app>
   </div>
 </template>
 
@@ -92,6 +94,10 @@ table {
 
 td {
   padding: 0.3rem;
+}
+
+.search {
+  width: 30vw;
 }
 
 </style>

@@ -3,8 +3,8 @@
     <img :src="image">
     <section>
       <h3>{{name}}</h3>
-        <v-btn text icon color="pink">
-          <v-icon>mdi-heart</v-icon>
+        <v-btn @click="toggleLike" :class="{testProp: isFavorite}" text icon large>
+          <v-icon>{{ myIcon.name }}</v-icon>
         </v-btn>
       <table>
         <tr v-for="ingredient in ingredients" :key="ingredient.name">
@@ -21,16 +21,38 @@
 
 <script>
 export default {
-  // methods: {
-  //   likeDrink () {
-  //     alert('Det funkar')
-  //   }
-  // },
+  computed: {
+    isFavorite() {
+      return this.$store.state.favorites.has(this.id)
+    },
+
+  },
+  data() {
+    return {
+      myIcon: {
+        name: 'mdi-heart',
+        color: 'default'
+      }
+    }
+  },
+  methods: {
+    toggleLike () {
+      this.$store.dispatch('toggleFavorite', this.id)
+      //this.isFavorite = !this.isFavorite
+    }
+  },
   props: {
-    ingredients: Array,
+    id: Number,
     image: String,
+    ingredients: Array,
     instructions: String,
     name: String,
-  }
+  },
 }
 </script>
+
+<style scoped>
+  button.active > v-icon {
+    color: darkred;
+  }
+</style>

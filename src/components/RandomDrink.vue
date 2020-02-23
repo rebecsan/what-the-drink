@@ -30,7 +30,6 @@ export default {
         .then(response => response.json())
         .then(result => {
           this.drinks = result.drinks.map(this.helpers.structureRecipe)
-          console.log(this.drinks)
         })
     }
   }

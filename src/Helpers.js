@@ -14,10 +14,11 @@ export default class Helpers {
       }
     }
     return {
-      name: drink.strDrink,
+      id: parseInt(drink.idDrink, 10),
       image: drink.strDrinkThumb,
       instructions: drink.strInstructions,
-      ingredients: ingredients
+      ingredients: ingredients,
+      name: drink.strDrink
     };
   }
 }

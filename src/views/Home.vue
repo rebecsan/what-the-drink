@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <RandomDrink/>
-    <label for="searchBox">List all drinks by first letter</label>
-    <input v-model="searchString" name="searchBox" placeholder="Enter letter">
+    <v-container>
+      <label for="searchBox"><h3>List all drinks by first letter</h3></label>
+      <v-text-field class="search" clearable v-model="searchString" name="searchBox" placeholder="Enter letter"/>
+    </v-container>
     <AllDrinks :drinks="drinks"/>
   </div>
 </template>
@@ -32,9 +34,15 @@ export default {
         .then(response => response.json())
         .then(result => {
           this.drinks = result.drinks.map(this.helpers.structureRecipe)
-          console.log(this.drinks)
         })
       }
     }
   }
 </script>
+
+<style scoped>
+  .search {
+    width: 30vw;
+    margin: auto
+  }
+</style>
