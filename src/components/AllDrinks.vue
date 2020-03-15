@@ -1,7 +1,7 @@
 <template>
   <div>
     <section v-if="drinks" class="results">
-        <Drink v-for="drink in drinks" :key="drink.name" v-bind="drink"/> <!-- v-bind without ....... -->
+        <Drink v-for="drink in drinks" :key="drink.id" v-bind="drink"/> <!-- v-bind without ....... -->
     </section>
   </div>
 </template>

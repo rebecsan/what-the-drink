@@ -1,27 +1,33 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import router from '../router';
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    favorites: new Set(),
-    favArr: []
+    favorites: new Map(),
+    newSearchString: '',
+    searchString: ''
   },
   mutations: {
     TOGGLE_FAVORITE (state, drink) {
       if (state.favorites.has(drink.id)) {
         state.favorites.delete(drink.id)
-        state.favArr = state.favArr.filter(d => d.id != drink.id)
       } else {
-        state.favorites.add(drink.id)
-        state.favArr.push(drink)
+        state.favorites.set(drink.id, drink)
       }
+    },
+    setNewSearchString(state, newSearchString) {
+      state.newSearchString = newSearchString
+    },
+    setSearchString(state, searchString) {
+      state.searchString = searchString
     }
   },
   actions: {
     toggleFavorite (context, drink) {
-      context.commit('TOGGLE_FAVORITE',drink)
+      context.commit('TOGGLE_FAVORITE', drink)
     }
   },
 })

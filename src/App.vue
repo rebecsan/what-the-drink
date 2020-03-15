@@ -1,15 +1,15 @@
 <template>
   <div id="app">
     <v-app>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/favorites">Favorites</router-link>
-    </div>
-      <h1>What the drink</h1>
-    <router-view/>
-    <div id="footer">
-      <p>API från https://www.thecocktaildb.com/api.php</p>
-    </div>
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/favorites">Favorites</router-link>
+      </div>
+        <h1>What the drink</h1>
+      <router-view/>
+      <div id="footer">
+        <p>API från https://www.thecocktaildb.com/api.php</p>
+      </div>
     </v-app>
   </div>
 </template>
@@ -22,11 +22,6 @@
   text-align: center;
   color: #2c3e50;
   background-color: snow;
-}
-
-Drink {
-  border-style: solid;
-  border: #2c3e50;
 }
 
 #footer > p {
@@ -85,6 +80,11 @@ li {
   object-fit: cover;
   width: 1fr;
   height: auto;
+}
+
+.search {
+  width: 30vw;
+  margin: auto
 }
 
 table {

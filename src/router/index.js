@@ -2,19 +2,33 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Favorites from '../views/Favorites.vue'
+import Search from '../components/Search.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    component: Home,
+    meta: {
+      title: 'Drinks | Home'
+    },
     name: 'Home',
-    component: Home
+    path: '/',
+    children: [
+      {
+        component: Search,
+        name: 'Search',
+        path: '/search/:newSearchString'
+      }
+    ]
   },
   {
-    path: '/favorites',
+    component: Favorites,
     name: 'Favorites',
-    component: Favorites
+    meta: {
+      title: 'Drinks | Favorites'
+    },
+    path: '/favorites'
   }
 ]
 

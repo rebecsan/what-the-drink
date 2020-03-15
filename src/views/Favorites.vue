@@ -1,6 +1,6 @@
 <template>
   <div class="favorites">
-    <Drink v-for="drink in favorites" :key="drink.name" v-bind="drink"/>
+    <Drink v-for="drink in favorites" :key="drink.id" v-bind="drink"/>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     favorites() {
-      return this.$store.state.favArr
+      return this.$store.state.favorites.values()
     }
   }
 }

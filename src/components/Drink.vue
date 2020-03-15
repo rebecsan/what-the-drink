@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="drink">
     <img :src="image">
     <section>
       <h3>{{name}}</h3>
@@ -44,7 +44,7 @@ export default {
         instructions: this.instructions,
         name: this.name,
       })
-      //this.isFavorite = !this.isFavorite
+      this.isFavorite = !this.isFavorite
     }
   },
   props: {
