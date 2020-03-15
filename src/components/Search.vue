@@ -34,6 +34,7 @@ export default {
   },
   created () {
     this.searchDrinks(this.$route.params.newSearchString)
+    this.newSearchString = this.$route.params.newSearchString
   },
   data () {
     return {
