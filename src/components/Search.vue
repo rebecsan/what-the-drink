@@ -32,6 +32,9 @@ export default {
       }
     }
   },
+  created () {
+    this.searchDrinks(this.$route.params.newSearchString)
+  },
   data () {
     return {
       drinks: null,
@@ -67,7 +70,7 @@ export default {
           else {
             this.drinks = []
           }
-          // this.router.push({name: 'Search', params: str})
+          this.router.push({name: 'Search', params: str})
         })
     }  
   },
@@ -79,12 +82,6 @@ export default {
       immediate: true,
       handler: "searchDrinks"
     }
-    // newSearchString(newVal) {
-    //     this.$router.push({param: { ...this.$route.param, searchString: newVal } });
-    // },
-    // '$route.param.searchString': function(val) {
-    //     this.searchString = val;
-    // }
   }
 }
 </script>
